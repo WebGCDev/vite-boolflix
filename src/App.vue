@@ -45,5 +45,9 @@ export default {
 </template>
 
 <style lang="scss">
-@use './assets/styles/general.scss'
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 </style>
