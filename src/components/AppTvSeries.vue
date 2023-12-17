@@ -9,10 +9,10 @@ export default {
 <template>
     <div class="img"><img :src="'http://image.tmdb.org/t/p/w342/' + datatv.poster_path" alt=""></div>
     <div class="text">
-        <div class="title">{{ datatv.name }}</div>
-        <div class="original">{{ datatv.original_name }}</div>
-        <div class="language">{{ datatv.original_language }}</div>
-        <div class="vote">{{ datatv.vote_average }}</div>
+        <div class="title">Titolo: {{ datatv.name }}</div>
+        <div class="original">Titolo originale: {{ datatv.original_name }}</div>
+        <div class="language">Lingua: {{ datatv.original_language }}</div>
+        <div class="vote">Voto: {{ datatv.vote_average }}</div>
     </div>
 </template>
 

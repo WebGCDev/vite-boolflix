@@ -18,7 +18,8 @@
     "@growthbunker/vueflags": "^0.1.14",
     "axios": "^1.6.2",
     "flag-icons": "^7.1.0",
-    "vue": "^3.3.11"
+    "vue": "^3.3.11",
+    "vue-country-flag-next": "^2.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
