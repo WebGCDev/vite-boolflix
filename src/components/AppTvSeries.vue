@@ -41,6 +41,7 @@ export default {
                 <font-awesome-icon :key="star" :icon="['far', 'star']" v-if="convertVote(datatv.vote_average) < 5"
                     class="star" />
             </template>
+            <img :src="'http://image.tmdb.org/t/p/w342/' + datatv.backdrop_path" alt="">
             <div class="overview">Overview: {{ datatv.overview }}</div>
         </div>
     </div>
@@ -54,9 +55,13 @@ export default {
     margin: 1rem;
 
     .image_container {
+        border-radius: 2rem;
+        border: 1px solid red;
+
         img {
             width: 345px;
             height: 520px;
+            border-radius: 2rem;
         }
     }
 
@@ -69,6 +74,8 @@ export default {
         opacity: 0;
         background-color: rgba(255, 255, 255, 0.9);
         transition: opacity 2.0s ease;
+        overflow-y: auto;
+        border-radius: 2rem;
 
         .star {
             color: rgb(252, 0, 0);
