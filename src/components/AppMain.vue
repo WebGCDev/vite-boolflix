@@ -17,17 +17,12 @@ export default {
 
 <template>
     <div class="contents">
+        <h1>Movies</h1>
         <div class="movies">
-            <div>
-                <h1>Movies</h1>
-            </div>
             <app-movies v-for="movie in store.ArrMovies" :key="movie.id" :dataMovie="movie" />
         </div>
-
+        <h1>Tv-Series</h1>
         <div class="tv-series">
-            <div>
-                <h1>Tv-Series</h1>
-            </div>
             <app-tv-series v-for="tvserie in store.ArrTvSeries" :key="tvserie.id" :datatv="tvserie" />
         </div>
     </div>
@@ -36,5 +31,20 @@ export default {
 <style lang="scss" scoped>
 .contents {
     background-color: #7D7B7A;
+    text-align: center;
+
+    .movies {
+        display: flex;
+        overflow-x: scroll;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .tv-series {
+        display: flex;
+        overflow-x: scroll;
+        max-width: 1000px;
+        margin: auto;
+    }
 }
 </style>

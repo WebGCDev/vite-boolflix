@@ -22,7 +22,8 @@ export default {
         <div class="img"><img :src="'http://image.tmdb.org/t/p/w342/' + datatv.poster_path" alt=""></div>
         <div class="text">
             <div class="title">Titolo: {{ datatv.name }}</div>
-            <div class="original">Titolo originale: {{ datatv.original_name }}</div>
+            <div class="original" v-show="datatv.original_title !== datatv.title">Titolo originale: {{ datatv.original_name
+            }}</div>
             <div class="lang">
                 <span>Lingua originale: </span>
                 <lang-flag :iso='datatv.original_language' />
@@ -40,10 +41,12 @@ export default {
 
 <style lang="scss" scoped>
 .serie {
-    display: flex;
-}
+    border: 1px solid black;
+    width: 342px;
+    margin: 1rem;
 
-.star {
-    color: rgb(252, 0, 0);
+    .star {
+        color: rgb(252, 0, 0);
+    }
 }
 </style>

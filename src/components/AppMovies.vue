@@ -19,10 +19,11 @@ export default {
 </script>
 <template>
     <div class="movie">
-        <div class="img"><img :src="'http://image.tmdb.org/t/p/w342/' + dataMovie.poster_path" alt=""></div>
+        <img :src="'http://image.tmdb.org/t/p/w342/' + dataMovie.poster_path" alt="">
         <div class="text">
             <div class="title">Titolo: {{ dataMovie.title }}</div>
-            <div class="original">Titolo originale: {{ dataMovie.original_title }}</div>
+            <div class="original" v-show="dataMovie.original_title !== dataMovie.title">Titolo originale: {{
+                dataMovie.original_title }}</div>
             <div class="lang">
                 <span>Lingua originale: </span>
                 <lang-flag :iso='dataMovie.original_language' />
@@ -41,10 +42,12 @@ export default {
 
 <style lang="scss" scoped>
 .movie {
-    display: flex;
-}
+    border: 1px solid black;
+    width: 342px;
+    margin: 1rem;
 
-.star {
-    color: rgb(252, 0, 0);
+    .star {
+        color: red;
+    }
 }
 </style>

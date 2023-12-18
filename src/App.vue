@@ -34,9 +34,22 @@ export default {
             })
                 .then((response) => (this.store.ArrTvSeries = response.data.results));
         },
+    },
+    created() {
+        axios.get('https://api.themoviedb.org/3/movie/top_rated', {
+            params: {
+                api_key: '8f859e941622d4303bfe33f13f9df12c',
+            }
+        })
+            .then((response) => (this.store.ArrMovies = response.data.results));
+        axios.get('https://api.themoviedb.org/3/tv/top_rated', {
+            params: {
+                api_key: '8f859e941622d4303bfe33f13f9df12c',
+            }
+        })
+            .then((response) => (this.store.ArrTvSeries = response.data.results));
     }
 }
-
 </script>
 
 <template>
