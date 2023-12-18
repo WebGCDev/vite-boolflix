@@ -19,7 +19,13 @@ export default {
 </script>
 <template>
     <div class="movie">
-        <img :src="'http://image.tmdb.org/t/p/w342/' + dataMovie.poster_path" alt="">
+        <div class="image_container">
+            <img v-if="dataMovie.poster_path" :src="'http://image.tmdb.org/t/p/w342/' + dataMovie.poster_path"
+                :alt="dataMovie.poster_path">
+            <img class="not_av" v-else
+                src="https://www.prolococisanobg.it/wp-content/uploads/2017/10/Non-disponibile-_04.jpg"
+                alt="Img Non Disponibile">
+        </div>
         <div class="text">
             <div class="title">Titolo: {{ dataMovie.title }}</div>
             <div class="original" v-show="dataMovie.original_title !== dataMovie.title">Titolo originale: {{
@@ -35,19 +41,54 @@ export default {
                 <font-awesome-icon :key="star" :icon="['far', 'star']" v-if="convertVote(dataMovie.vote_average) < 5"
                     class="star" />
             </template>
-
+            <div class="overview">Overview: {{ dataMovie.overview }}</div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .movie {
-    border: 1px solid black;
-    width: 342px;
+    position: relative;
+    width: 345px;
     margin: 1rem;
+    height: 520px;
 
-    .star {
-        color: red;
+    .image_container {
+
+        img {
+            width: 345px;
+            height: 520px;
+        }
+    }
+
+    .text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: opacity 2.0s ease;
+
+        .star {
+            color: red;
+        }
     }
 }
-</style>
+
+.movie:hover .text {
+    opacity: 1;
+}
+
+.movie .image_container {
+    position: relative;
+}
+
+.movie .image_container img {
+    transition: opacity 2.0s ease;
+}
+
+.movie:hover .image_container img {
+    opacity: 0;
+}</style>

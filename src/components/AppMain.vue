@@ -35,14 +35,14 @@ export default {
 
     .movies {
         display: flex;
-        overflow-x: scroll;
+        overflow: auto;
         max-width: 1000px;
         margin: auto;
     }
 
     .tv-series {
         display: flex;
-        overflow-x: scroll;
+        overflow: auto;
         max-width: 1000px;
         margin: auto;
     }

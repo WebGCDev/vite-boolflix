@@ -19,7 +19,13 @@ export default {
 
 <template>
     <div class="serie">
-        <div class="img"><img :src="'http://image.tmdb.org/t/p/w342/' + datatv.poster_path" alt=""></div>
+        <div class="image_container">
+            <img v-if="datatv.poster_path" :src="'http://image.tmdb.org/t/p/w342/' + datatv.poster_path"
+                :alt="datatv.poster_path">
+            <img class="not_av" v-else
+                src="https://www.prolococisanobg.it/wp-content/uploads/2017/10/Non-disponibile-_04.jpg"
+                alt="Img Non Disponibile">
+        </div>
         <div class="text">
             <div class="title">Titolo: {{ datatv.name }}</div>
             <div class="original" v-show="datatv.original_title !== datatv.title">Titolo originale: {{ datatv.original_name
@@ -35,18 +41,54 @@ export default {
                 <font-awesome-icon :key="star" :icon="['far', 'star']" v-if="convertVote(datatv.vote_average) < 5"
                     class="star" />
             </template>
+            <div class="overview">Overview: {{ datatv.overview }}</div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .serie {
-    border: 1px solid black;
-    width: 342px;
+    position: relative;
+    width: 345px;
+    height: 520px;
     margin: 1rem;
 
-    .star {
-        color: rgb(252, 0, 0);
+    .image_container {
+        img {
+            width: 345px;
+            height: 520px;
+        }
     }
+
+    .text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: opacity 2.0s ease;
+
+        .star {
+            color: rgb(252, 0, 0);
+        }
+    }
+}
+
+.serie:hover .text {
+    opacity: 1;
+}
+
+.serie .image_container {
+    position: relative;
+}
+
+.serie .image_container img {
+    transition: opacity 2.0s ease;
+}
+
+.serie:hover .image_container img {
+    opacity: 0;
 }
 </style>

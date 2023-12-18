@@ -19,20 +19,25 @@ export default {
     },
     methods: {
         requestMoviesFromApi() {
-            axios.get('https://api.themoviedb.org/3/search/movie', {
-                params: {
-                    api_key: '8e0b7d9df7b8cce9833d9b0e472dfe7e',
-                    query: this.store.searchBar,
-                }
-            })
-                .then((response) => (this.store.ArrMovies = response.data.results));
-            axios.get('https://api.themoviedb.org/3/search/tv', {
-                params: {
-                    api_key: '8e0b7d9df7b8cce9833d9b0e472dfe7e',
-                    query: this.store.searchBar,
-                }
-            })
-                .then((response) => (this.store.ArrTvSeries = response.data.results));
+            if (store.searchBar == '') {
+                this.store.inputError = true;
+            } else {
+                this.store.inputError = false
+                axios.get('https://api.themoviedb.org/3/search/movie', {
+                    params: {
+                        api_key: '8e0b7d9df7b8cce9833d9b0e472dfe7e',
+                        query: this.store.searchBar,
+                    }
+                })
+                    .then((response) => (this.store.ArrMovies = response.data.results));
+                axios.get('https://api.themoviedb.org/3/search/tv', {
+                    params: {
+                        api_key: '8e0b7d9df7b8cce9833d9b0e472dfe7e',
+                        query: this.store.searchBar,
+                    }
+                })
+                    .then((response) => (this.store.ArrTvSeries = response.data.results));
+            }
         },
     },
     created() {

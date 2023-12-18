@@ -20,6 +20,9 @@ export default {
         <div class="search">
             <input type="text" v-model="store.searchBar" @keyup.enter="emitSearchBar">
             <button @click="emitSearchBar">Cerca</button>
+            <div>
+                <small v-show="store.inputError" style="color: red;">Digita un titolo per avviare la ricerca</small>
+            </div>
         </div>
     </div>
 </template>
