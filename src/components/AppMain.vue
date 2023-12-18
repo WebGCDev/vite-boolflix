@@ -33,8 +33,10 @@ export default {
     background-color: black;
 
     h1 {
-        color: red;
+        color: #DC1A28;
         text-align: center;
+        font-size: 3rem;
+        font-family: 'Noto Sans', sans-serif;
     }
 
     img {
@@ -46,6 +48,20 @@ export default {
         overflow: auto;
         max-width: 1000px;
         margin: auto;
+
+        &::-webkit-scrollbar {
+            background: black;
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #DC1A28;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: red;
+        }
     }
 
     .tv-series {
@@ -53,6 +69,20 @@ export default {
         overflow: auto;
         max-width: 1000px;
         margin: auto;
+
+        &::-webkit-scrollbar {
+            background: black;
+            height: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #DC1A28;
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: red;
+        }
     }
 }
 </style>

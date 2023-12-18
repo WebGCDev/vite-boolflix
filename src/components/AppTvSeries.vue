@@ -48,6 +48,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.overview,
+.title,
+.lang,
+{
+font-family: 'Noto Sans', sans-serif;
+}
+
+span {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .serie {
     position: relative;
     width: 345px;
@@ -56,7 +67,7 @@ export default {
 
     .image_container {
         border-radius: 2rem;
-        border: 1px solid red;
+        border: 1px solid #DC1A28;
 
         img {
             width: 345px;
@@ -74,8 +85,14 @@ export default {
         opacity: 0;
         background-color: rgba(255, 255, 255, 0.9);
         transition: opacity 2.0s ease;
-        overflow-y: auto;
+        overflow-y: scroll;
         border-radius: 2rem;
+        text-align: center;
+
+        &::-webkit-scrollbar {
+            background: transparent;
+            width: .1px;
+        }
 
         .star {
             color: rgb(252, 0, 0);

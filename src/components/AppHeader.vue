@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div class="header">
-        <h1>BOOLFLIX</h1>
+        <img src="../assets/logoboolflix.png" alt="">
         <div class="search">
             <input type="text" v-model="store.searchBar" @keyup.enter="emitSearchBar">
             <button @click="emitSearchBar">Cerca</button>
@@ -36,15 +36,15 @@ export default {
     justify-content: space-between;
     align-items: center;
 
-    h1 {
-        color: red;
+    img {
+        width: 15%;
     }
 
     .search {
         button {
             padding: .3rem;
             color: black;
-            background-color: red;
+            background-color: #DC1A28;
             margin-left: 1rem;
         }
     }

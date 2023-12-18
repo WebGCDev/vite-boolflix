@@ -48,6 +48,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.overview,
+.title,
+.lang,
+{
+font-family: 'Noto Sans', sans-serif;
+}
+
+span {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .movie {
     position: relative;
     width: 345px;
@@ -56,7 +67,7 @@ export default {
 
     .image_container {
         border-radius: 2rem;
-        border: 1px solid red;
+        border: 1px solid #DC1A28;
 
         img {
             width: 345px;
@@ -76,6 +87,12 @@ export default {
         transition: opacity 2.0s ease;
         overflow-y: auto;
         border-radius: 2rem;
+        text-align: center;
+
+        &::-webkit-scrollbar {
+            background: transparent;
+            height: 5px;
+        }
 
         .star {
             color: red;
